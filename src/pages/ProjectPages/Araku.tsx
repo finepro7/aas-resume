@@ -162,8 +162,8 @@ const ArakuProject = () => {
 
           {/* Two Images Section */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 reveal stagger-5">
-            {/* First box with centered image that fits without being cut */}
-            <div className="aspect-[4/2.5] bg-white rounded-lg overflow-hidden relative flex items-center justify-center">
+            {/* First image box */}
+            <div className="aspect-[4/3] md:aspect-[4/2.5] bg-white rounded-lg overflow-hidden flex items-center justify-center p-4">
               <img
                 src="/assets/box-under.png"
                 alt="Araku coffee packaging"
@@ -171,8 +171,8 @@ const ArakuProject = () => {
               />
             </div>
 
-            {/* Second box with standard image */}
-            <div className="aspect-[4/2.5] bg-white rounded-lg overflow-hidden relative flex items-center justify-center">
+            {/* Second image box */}
+            <div className="aspect-[4/3] md:aspect-[4/2.5] bg-white rounded-lg overflow-hidden flex items-center justify-center p-4">
               <img
                 src="/assets/moe.png"
                 alt="Araku branding materials"
