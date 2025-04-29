@@ -32,8 +32,8 @@ const ZineProject = () => {
     <div>
       <Header />
 
-      <main className="pt-24 pb-20">
-        <div className="max-w-7xl mx-auto px-6">
+      <main className="pt-24 pb-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
           {/* Back Button */}
           <div className="mb-10">
             <Link
@@ -56,11 +56,11 @@ const ZineProject = () => {
               Back to Projects
             </Link>
 
-            <h1 className="text-3xl md:text-5xl font-serif font-medium mb-6 reveal">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-serif font-medium mb-6 reveal">
               Zine | Editorial Design
             </h1>
 
-            <div className="flex flex-wrap gap-3 mb-8 reveal stagger-1">
+            <div className="flex flex-wrap gap-2 sm:gap-3 mb-8 reveal stagger-1">
               {["Editorial", "Print Design", "Typography"].map((tag, i) => (
                 <span
                   key={i}
@@ -73,12 +73,12 @@ const ZineProject = () => {
           </div>
 
           {/* Hero Image */}
-          <div className="relative mb-16 reveal stagger-2">
-            <div className="aspect-[16/9] bg-muted rounded-lg overflow-hidden flex items-center justify-center">
+          <div className="relative mb-16 reveal stagger-2 ">
+            <div className="aspect-[16/9] bg-muted rounded-lg overflow-hidden flex items-center   justify-center">
               <img
                 src="/assets/zine/artboard.jpg"
                 alt="Zine Editorial Design"
-                className="max-w-full max-h-full object-contain"
+                className="w-full h-full object-contain"
               />
             </div>
           </div>
@@ -86,7 +86,7 @@ const ZineProject = () => {
           {/* Project Overview */}
           <div className="grid grid-cols-1 gap-12 mb-16">
             <div className="lg:col-span-2 reveal stagger-4">
-              <h2 className="text-2xl font-serif font-medium mb-6">
+              <h2 className="text-xl sm:text-2xl font-serif font-medium mb-6">
                 Project Overview
               </h2>
               <p className="text-muted-foreground mb-6">
@@ -113,7 +113,7 @@ const ZineProject = () => {
                 <img
                   src={`/assets/zine/w${num}.jpg`}
                   alt={`Preview ${num}`}
-                  className="max-w-full max-h-full object-contain"
+                  className="w-full h-full object-contain"
                 />
               </div>
             ))}
@@ -144,7 +144,7 @@ const ZineProject = () => {
                   <img
                     src={`/assets/zine/c${num}.jpg`}
                     alt={`Preview ${num}`}
-                    className="max-w-full max-h-full object-contain"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               ))}
@@ -156,13 +156,13 @@ const ZineProject = () => {
             <img
               src="/assets/zine/artboard.jpg"
               alt="Zine complete spread"
-              className="max-w-full max-h-full object-contain"
+              className="w-full h-full object-contain"
             />
           </div>
 
           {/* Project Details */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
-            <div className="reveal stagger-5 lg:col-span-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-12 mb-16">
+            <div className="reveal stagger-5 md:col-span-2 lg:col-span-2">
               <div className="bg-secondary p-6 rounded-lg">
                 <h3 className="text-lg font-medium mb-4">Project Details</h3>
                 <ul className="space-y-3 text-sm">
@@ -193,7 +193,7 @@ const ZineProject = () => {
 
           {/* Next Project */}
           <div className="text-center reveal stagger-8">
-            <h2 className="text-2xl font-serif font-medium mb-6">
+            <h2 className="text-xl sm:text-2xl font-serif font-medium mb-6">
               Next Project
             </h2>
             <div className="inline-block">
