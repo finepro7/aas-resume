@@ -1,3 +1,5 @@
+// src/pages/ArakuProject.tsx
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useEffect, useRef } from "react";
@@ -102,13 +104,13 @@ const ArakuProject = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-16 reveal stagger-2">
             {[1, 2].map((i) => (
               <div
-                className="w-full aspect-[4/3] sm:aspect-[4/2.5] rounded-lg overflow-hidden bg-muted"
+                className="w-full aspect-[4/3] rounded-lg overflow-hidden bg-muted"
                 key={i}
               >
                 <img
                   src="/lovable-uploads/ebc115e1-483b-42cf-9185-31eb45b574cb.png"
                   alt={`Araku Coffee Branding ${i}`}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover"
                 />
               </div>
             ))}
@@ -147,17 +149,17 @@ const ArakuProject = () => {
             </div>
           </div>
 
-          {/* Two Images Section */}
+          {/* Two Images Section (Updated) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 reveal stagger-5">
             {["/assets/box-under.png", "/assets/moe.png"].map((src, i) => (
               <div
-                className="w-full aspect-[4/3] sm:aspect-[4/2.5] bg-white rounded-lg overflow-hidden flex items-center justify-center p-2 sm:p-4"
                 key={i}
+                className="w-full rounded-lg overflow-hidden bg-white"
               >
                 <img
                   src={src}
                   alt={`Araku branding ${i}`}
-                  className="w-full h-auto object-contain max-h-full"
+                  className="w-full h-auto object-cover"
                 />
               </div>
             ))}
@@ -187,13 +189,13 @@ const ArakuProject = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[...Array(4)].map((_, i) => (
                 <div
-                  className="w-full aspect-[4/5] sm:aspect-[4/3] bg-muted rounded-lg overflow-hidden"
+                  className="aspect-[4/5] bg-muted rounded-lg overflow-hidden"
                   key={i}
                 >
                   <img
                     src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80"
                     alt={`Process step ${i + 1}`}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               ))}
@@ -222,12 +224,12 @@ const ArakuProject = () => {
           </div>
 
           {/* 360 Image Viewer */}
-          <div className="w-full aspect-[21/9] sm:aspect-[16/9] bg-muted rounded-lg overflow-hidden mb-16 reveal stagger-8">
+          <div className="aspect-[21/9] bg-muted rounded-lg overflow-hidden mb-16 reveal stagger-8">
             <img
               ref={rotatingImageRef}
               src="/"
               alt="Araku coffee branding 360 showcase"
-              className="w-full h-auto max-h-[70vh] object-contain pointer-events-none mx-auto"
+              className="w-full h-full object-contain pointer-events-none"
             />
           </div>
 
