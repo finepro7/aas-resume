@@ -45,7 +45,6 @@ const ZineProject = () => {
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   strokeLinecap="round"
@@ -75,11 +74,11 @@ const ZineProject = () => {
 
           {/* Hero Image */}
           <div className="relative mb-16 reveal stagger-2">
-            <div className="aspect-[16/9] bg-muted rounded-lg overflow-hidden">
+            <div className="aspect-[16/9] bg-muted rounded-lg overflow-hidden flex items-center justify-center">
               <img
                 src="/assets/zine/artboard.jpg"
                 alt="Zine Editorial Design"
-                className="w-full h-full object-cover"
+                className="max-w-full max-h-full object-contain"
               />
             </div>
           </div>
@@ -104,23 +103,23 @@ const ZineProject = () => {
             </div>
           </div>
 
-          {/* Image Grid 1 (Responsive) */}
+          {/* Image Grid 1 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 reveal stagger-3 mb-16">
             {[1, 2, 3, 4].map((num) => (
               <div
                 key={num}
-                className="w-full aspect-[4/3] bg-white rounded-lg overflow-hidden"
+                className="w-full aspect-[4/3] bg-white rounded-lg overflow-hidden flex items-center justify-center"
               >
                 <img
                   src={`/assets/zine/w${num}.jpg`}
                   alt={`Preview ${num}`}
-                  className="w-full h-full object-cover"
+                  className="max-w-full max-h-full object-contain"
                 />
               </div>
             ))}
           </div>
 
-          {/* Additional Text and Image Grid 2 */}
+          {/* Additional Text + Image Grid 2 */}
           <div className="grid grid-cols-1 gap-12 mb-16">
             <div className="lg:col-span-2 reveal stagger-4">
               <p className="text-muted-foreground mb-6">
@@ -140,12 +139,12 @@ const ZineProject = () => {
               {[5, 6, 7, 8].map((num) => (
                 <div
                   key={num}
-                  className="w-full aspect-[4/3] bg-white rounded-lg overflow-hidden"
+                  className="w-full aspect-[4/3] bg-white rounded-lg overflow-hidden flex items-center justify-center"
                 >
                   <img
                     src={`/assets/zine/c${num}.jpg`}
                     alt={`Preview ${num}`}
-                    className="w-full h-full object-cover"
+                    className="max-w-full max-h-full object-contain"
                   />
                 </div>
               ))}
@@ -153,15 +152,15 @@ const ZineProject = () => {
           </div>
 
           {/* Final Full-Width Image */}
-          <div className="aspect-[21/9] bg-muted rounded-lg overflow-hidden mb-16 reveal stagger-7">
+          <div className="aspect-[21/9] bg-muted rounded-lg overflow-hidden mb-16 reveal stagger-7 flex items-center justify-center">
             <img
               src="/assets/zine/artboard.jpg"
               alt="Zine complete spread"
-              className="w-full h-full object-cover"
+              className="max-w-full max-h-full object-contain"
             />
           </div>
 
-          {/* Project Details Section */}
+          {/* Project Details */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
             <div className="reveal stagger-5 lg:col-span-2">
               <div className="bg-secondary p-6 rounded-lg">
@@ -208,7 +207,6 @@ const ZineProject = () => {
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
                     strokeLinecap="round"
