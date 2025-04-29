@@ -31,8 +31,7 @@ const designProjects: Project[] = [
     title: "Museum of Emotions | Exhibition",
     description:
       "An immersive exhibition design that explores human emotions through interactive installations and visual storytelling.",
-    imageUrl:
-      "https://static.wixstatic.com/media/ba664b_f73a6d45a4a746e89b9a6519b5b3af55~mv2.jpg",
+    imageUrl: "/assets/musuem/outro.jpg",
     category: "Exhibition",
     tags: ["Exhibition", "Interactive", "Experience Design"],
     year: "2023",
