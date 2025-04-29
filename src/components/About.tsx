@@ -99,11 +99,9 @@ const About = () => {
                 </div>
                 <ul className="space-y-3">
                   <li className="text-sm">
-                    <div className="font-medium">
-                      IIT Guwahati & Learnhill Technologies
-                    </div>
+                    <div className="font-medium">Manastik + IIT Kanpur</div>
                     <div className="text-muted-foreground">
-                      Gamifying Curriculums
+                      Dementia Application
                     </div>
                   </li>
                   <li className="text-sm">
