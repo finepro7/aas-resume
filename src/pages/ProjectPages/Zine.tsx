@@ -4,12 +4,10 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const ZineProject = () => {
-  // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Reveal animations on scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -36,6 +34,7 @@ const ZineProject = () => {
 
       <main className="pt-24 pb-20">
         <div className="max-w-7xl mx-auto px-6">
+          {/* Back Button */}
           <div className="mb-10">
             <Link
               to="/#projects"
@@ -63,18 +62,18 @@ const ZineProject = () => {
             </h1>
 
             <div className="flex flex-wrap gap-3 mb-8 reveal stagger-1">
-              <span className="inline-block px-3 py-1 text-sm rounded-full bg-secondary text-secondary-foreground">
-                Editorial
-              </span>
-              <span className="inline-block px-3 py-1 text-sm rounded-full bg-secondary text-secondary-foreground">
-                Print Design
-              </span>
-              <span className="inline-block px-3 py-1 text-sm rounded-full bg-secondary text-secondary-foreground">
-                Typography
-              </span>
+              {["Editorial", "Print Design", "Typography"].map((tag, i) => (
+                <span
+                  key={i}
+                  className="inline-block px-3 py-1 text-sm rounded-full bg-secondary text-secondary-foreground"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
 
+          {/* Hero Image */}
           <div className="relative mb-16 reveal stagger-2">
             <div className="aspect-[16/9] bg-muted rounded-lg overflow-hidden">
               <img
@@ -85,8 +84,9 @@ const ZineProject = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
-            <div className="lg:col-span-2 reveal stagger-3">
+          {/* Project Overview */}
+          <div className="grid grid-cols-1 gap-12 mb-16">
+            <div className="lg:col-span-2 reveal stagger-4">
               <h2 className="text-2xl font-serif font-medium mb-6">
                 Project Overview
               </h2>
@@ -96,12 +96,6 @@ const ZineProject = () => {
                 techniques. The project aimed to push the boundaries of print
                 design while maintaining readability and visual harmony.
               </p>
-              <p className="text-muted-foreground mb-6">
-                The design approach centered on creating a balance between
-                experimental typography and structured grid systems, resulting
-                in a publication that feels both cutting-edge and accessible to
-                readers.
-              </p>
               <p className="text-muted-foreground">
                 Special attention was given to paper selection, binding methods,
                 and print finishes to enhance the tactile experience of the
@@ -110,60 +104,64 @@ const ZineProject = () => {
             </div>
           </div>
 
-          {/* Process Section with Images */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 reveal stagger-4">
-            <div className="aspect-[4/3] bg-white rounded-lg overflow-hidden flex items-center justify-center p-4">
-              <img
-                src="/assets/zine/01.jpg"
-                alt="Zine spread layout"
-                className="max-w-full max-h-full object-contain"
-              />
+          {/* Image Grid 1 */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 reveal stagger-3 mb-16">
+            {[1, 2, 3, 4].map((num) => (
+              <div
+                key={num}
+                className="aspect-[4/3] bg-white rounded-lg overflow-hidden flex items-center justify-center p-2"
+              >
+                <img
+                  src={`/assets/zine/w${num}.jpg`}
+                  alt={`Preview ${num}`}
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Additional Text and Image Grid 2 */}
+          <div className="grid grid-cols-1 gap-12 mb-16">
+            <div className="lg:col-span-2 reveal stagger-4">
+              <p className="text-muted-foreground mb-6">
+                This editorial design project focused on creating a contemporary
+                zine that showcases modern typography and innovative layout
+                techniques. The project aimed to push the boundaries of print
+                design while maintaining readability and visual harmony.
+              </p>
+              <p className="text-muted-foreground">
+                Special attention was given to paper selection, binding methods,
+                and print finishes to enhance the tactile experience of the
+                zine, complementing the visual design with physical elements.
+              </p>
             </div>
-            <div className="aspect-[4/3] bg-white rounded-lg overflow-hidden flex items-center justify-center p-4">
-              <img
-                src="/assets/zine/03.jpg"
-                alt="Zine typography details"
-                className="max-w-full max-h-full object-contain"
-              />
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 reveal stagger-5">
+              {[5, 6, 7, 8].map((num) => (
+                <div
+                  key={num}
+                  className="aspect-[4/3] bg-white rounded-lg overflow-hidden flex items-center justify-center p-2"
+                >
+                  <img
+                    src={`/assets/zine/c${num}.jpg`}
+                    alt={`Preview ${num}`}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Project Details Section */}
-
-          {/* The Process Text Section */}
-          <div className="mb-16 reveal stagger-6">
-            <h2 className="text-2xl font-serif font-medium mb-6">
-              The Process
-            </h2>
-            <p className="text-muted-foreground mb-6">
-              The creative process began with extensive research into
-              contemporary editorial design, typography trends, and independent
-              publishing. This research phase informed the conceptual direction
-              and visual approach.
-            </p>
-            <p className="text-muted-foreground mb-6">
-              The design development involved creating multiple grid systems and
-              typography hierarchies, which were tested across different content
-              types. This iterative process allowed for refinement of the
-              layouts while ensuring flexibility across the publication.
-            </p>
-            <p className="text-muted-foreground">
-              Production considerations were integrated throughout the design
-              process, with close collaboration with printers to ensure that the
-              experimental design elements could be effectively produced within
-              budget constraints.
-            </p>
-          </div>
-
-          {/* Final Image */}
+          {/* Final Full-Width Image */}
           <div className="aspect-[21/9] bg-muted rounded-lg overflow-hidden mb-16 reveal stagger-7">
             <img
-              src="https://static.wixstatic.com/media/ba664b_bb6ea013739c4444b5ce947e708ac104~mv2.jpg/v1/fill/w_1899,h_809,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ba664b_bb6ea013739c4444b5ce947e708ac104~mv2.jpg"
+              src="/assets/zine/artboard.jpg"
               alt="Zine complete spread"
               className="w-full h-full object-cover"
             />
           </div>
 
+          {/* Project Details Section */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
             <div className="reveal stagger-5 lg:col-span-2">
               <div className="bg-secondary p-6 rounded-lg">
@@ -194,6 +192,7 @@ const ZineProject = () => {
             </div>
           </div>
 
+          {/* Next Project */}
           <div className="text-center reveal stagger-8">
             <h2 className="text-2xl font-serif font-medium mb-6">
               Next Project
