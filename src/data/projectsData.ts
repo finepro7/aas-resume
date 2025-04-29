@@ -7,7 +7,7 @@ const projectsData: Project[] = [
     title: "Araku Coffee | Branding",
     description:
       "A comprehensive brand identity system for Araku Coffee, focusing on sustainability and premium aesthetics.",
-    imageUrl: "/lovable-uploads/ebc115e1-483b-42cf-9185-31eb45b574cb.png",
+    imageUrl: "/assets/ya.png",
     category: "Branding",
     tags: ["Branding", "Logo Design", "Packaging"],
     year: "2022",
