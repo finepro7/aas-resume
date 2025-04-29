@@ -198,10 +198,10 @@ const ZineProject = () => {
             </h2>
             <div className="inline-block">
               <Link
-                to="/project/araku"
+                to="/project/museum-emotions"
                 className="group inline-flex items-center space-x-2 text-lg hover:text-primary transition-colors"
               >
-                <span>Araku Coffee | Branding</span>
+                <span>Museum Emotions</span>
                 <svg
                   className="w-5 h-5 group-hover:translate-x-1 transition-transform"
                   fill="none"
