@@ -32,6 +32,16 @@ const projectsData: Project[] = [
     tags: ["Exhibition", "Interactive", "Experience Design"],
     year: "2023",
   },
+  {
+    id: "manastik",
+    title: "Manastik",
+    description:
+      "An immersive exhibition design that explores human emotions through interactive installations and visual storytelling.",
+    imageUrl: "/assets/manastik/3.jpeg",
+    category: "Interaction Design",
+    tags: ["UI/UX"],
+    year: "2023",
+  },
   // {
   //   id: "mobile-app",
   //   title: "Mobile App UI/UX",

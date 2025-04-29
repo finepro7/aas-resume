@@ -1,6 +1,11 @@
-
-import { useEffect, useRef } from 'react';
-import { GraduationCap, Briefcase, Code, Palette, BookText } from 'lucide-react';
+import { useEffect, useRef } from "react";
+import {
+  GraduationCap,
+  Briefcase,
+  Code,
+  Palette,
+  BookText,
+} from "lucide-react";
 
 const About = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -10,10 +15,10 @@ const About = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const elements = entry.target.querySelectorAll('.reveal');
+            const elements = entry.target.querySelectorAll(".reveal");
             elements.forEach((el, i) => {
               setTimeout(() => {
-                el.classList.add('active');
+                el.classList.add("active");
               }, i * 100);
             });
           }
@@ -34,7 +39,11 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="py-20 md:py-28 px-6 bg-secondary">
+    <section
+      id="about"
+      ref={sectionRef}
+      className="py-20 md:py-28 px-6 bg-secondary"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
           <div className="space-y-8">
@@ -46,13 +55,25 @@ const About = () => {
                 Designer & Creative Thinker
               </h2>
               <p className="text-muted-foreground mb-4 reveal stagger-2">
-                I'm a passionate designer and creative thinker, always looking for ways to merge storytelling with functionality. Whether it's crafting immersive packaging experiences for brands like Araku Coffee, refining digital interfaces, or building engaging learning environments, I believe that great design isn't just about aesthetics—it's about evoking emotions and creating meaningful interactions.
+                I'm a passionate designer and creative thinker, always looking
+                for ways to merge storytelling with functionality. Whether it's
+                crafting immersive packaging experiences for brands like Araku
+                Coffee, refining digital interfaces, or building engaging
+                learning environments, I believe that great design isn't just
+                about aesthetics—it's about evoking emotions and creating
+                meaningful interactions.
               </p>
               <p className="text-muted-foreground mb-6 reveal stagger-3">
-                I thrive at the intersection of culture, sustainability, and innovation. My approach to design is deeply research-driven, ensuring that every project I work on tells a story. Whether it's integrating tribal heritage into modern branding or leveraging eco-friendly materials like water-soluble paper for conscious packaging solutions, I aim to push the boundaries of design while staying true to its roots.
+                I thrive at the intersection of culture, sustainability, and
+                innovation. My approach to design is deeply research-driven,
+                ensuring that every project I work on tells a story. Whether
+                it's integrating tribal heritage into modern branding or
+                leveraging eco-friendly materials like water-soluble paper for
+                conscious packaging solutions, I aim to push the boundaries of
+                design while staying true to its roots.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 reveal stagger-3">
               <div className="bg-white/50 p-5 rounded-lg">
                 <div className="flex items-center gap-3 mb-3">
@@ -61,12 +82,16 @@ const About = () => {
                 </div>
                 <ul className="space-y-3">
                   <li className="text-sm">
-                    <div className="font-medium">Graphics and communication, B.Des</div>
-                    <div className="text-muted-foreground">The Design Village</div>
+                    <div className="font-medium">
+                      Graphics and communication, B.Des
+                    </div>
+                    <div className="text-muted-foreground">
+                      The Design Village
+                    </div>
                   </li>
                 </ul>
               </div>
-              
+
               <div className="bg-white/50 p-5 rounded-lg">
                 <div className="flex items-center gap-3 mb-3">
                   <Briefcase className="w-5 h-5 text-primary" />
@@ -74,17 +99,23 @@ const About = () => {
                 </div>
                 <ul className="space-y-3">
                   <li className="text-sm">
-                    <div className="font-medium">IIT Guwahati & Learnhill Technologies</div>
-                    <div className="text-muted-foreground">Gamifying Curriculums</div>
+                    <div className="font-medium">
+                      IIT Guwahati & Learnhill Technologies
+                    </div>
+                    <div className="text-muted-foreground">
+                      Gamifying Curriculums
+                    </div>
                   </li>
                   <li className="text-sm">
                     <div className="font-medium">Volunteer in Auroville</div>
-                    <div className="text-muted-foreground">Nandanam and Oli School</div>
+                    <div className="text-muted-foreground">
+                      Nandanam and Oli School
+                    </div>
                   </li>
                 </ul>
               </div>
             </div>
-            
+
             <div className="space-y-6 reveal stagger-3">
               <div className="bg-white/50 p-5 rounded-lg">
                 <div className="flex items-center gap-3 mb-3">
@@ -92,9 +123,21 @@ const About = () => {
                   <h3 className="text-lg font-medium">Design Skills</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {["UI/UX Design", "Brand Identity", "Typography", "Art Direction", "Design Systems", "User Research", "Sustainable Design", "Packaging", "Cultural Design", "Exhibition Design", "Storytelling"].map((skill, index) => (
-                    <span 
-                      key={index} 
+                  {[
+                    "UI/UX Design",
+                    "Brand Identity",
+                    "Typography",
+                    "Art Direction",
+                    "Design Systems",
+                    "User Research",
+                    "Sustainable Design",
+                    "Packaging",
+                    "Cultural Design",
+                    "Exhibition Design",
+                    "Storytelling",
+                  ].map((skill, index) => (
+                    <span
+                      key={index}
                       className="px-3 py-1.5 bg-white rounded-full text-sm"
                     >
                       {skill}
@@ -102,7 +145,7 @@ const About = () => {
                   ))}
                 </div>
               </div>
-              
+
               <div className="bg-white/50 p-5 rounded-lg">
                 <div className="flex items-center gap-3 mb-3">
                   <Code className="w-5 h-5 text-primary" />
@@ -117,12 +160,14 @@ const About = () => {
                     { name: "After Effects", level: 75 },
                     { name: "TouchDesigner", level: 60 },
                     { name: "Premiere Pro", level: 70 },
-                    { name: "XD", level: 85 }
+                    { name: "XD", level: 85 },
                   ].map((software, index) => (
                     <div key={index} className="flex flex-col">
-                      <span className="text-sm font-medium mb-1">{software.name}</span>
+                      <span className="text-sm font-medium mb-1">
+                        {software.name}
+                      </span>
                       <div className="h-2 bg-white/50 rounded-full overflow-hidden">
-                        <div 
+                        <div
                           className="h-full bg-primary rounded-full"
                           style={{ width: `${software.level}%` }}
                         ></div>
@@ -133,12 +178,12 @@ const About = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="relative">
             <div className="aspect-[4/5] bg-white/50 rounded-lg overflow-hidden reveal stagger-1">
-              <img 
-                src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&q=80&w=1920" 
-                alt="Designer at work" 
+              <img
+                src="/assets/my.jpg"
+                alt="Designer at work"
                 className="w-full h-full object-cover"
               />
             </div>

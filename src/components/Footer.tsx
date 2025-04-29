@@ -115,7 +115,7 @@ const Footer = () => {
           <p className="text-muted-foreground text-sm mb-4 md:mb-0">
             © {currentYear} Aastha Mehdiratta. All rights reserved.
           </p>
-          <div className="flex space-x-6">
+          {/* <div className="flex space-x-6">
             <a
               href="#"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -128,7 +128,7 @@ const Footer = () => {
             >
               Terms of Service
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

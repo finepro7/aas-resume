@@ -73,12 +73,12 @@ const ZineProject = () => {
           </div>
 
           {/* Hero Image */}
-          <div className="relative mb-16 reveal stagger-2 ">
-            <div className="aspect-[16/9] bg-muted rounded-lg overflow-hidden flex items-center   justify-center">
+          <div className="relative mb-16 reveal stagger-2">
+            <div className="w-full bg-muted rounded-lg overflow-hidden flex items-center justify-center ">
               <img
                 src="/assets/zine/artboard.jpg"
                 alt="Zine Editorial Design"
-                className="w-full h-full object-contain"
+                className="w-full h-auto object-contain "
               />
             </div>
           </div>
@@ -90,15 +90,17 @@ const ZineProject = () => {
                 Project Overview
               </h2>
               <p className="text-muted-foreground mb-6">
-                This editorial design project focused on creating a contemporary
-                zine that showcases modern typography and innovative layout
-                techniques. The project aimed to push the boundaries of print
-                design while maintaining readability and visual harmony.
+                This zine was created in collaboration with Therpaize, a
+                platform that connects individuals with therapists, with the aim
+                of visually articulating the often-invisible struggles of mental
+                health. The concept draws inspiration from the emotional tone of
+                BoJack Horseman—not directly referencing the show, but
+                channeling its ability to depict complex internal states in a
+                nuanced, relatable way.
               </p>
               <p className="text-muted-foreground">
-                Special attention was given to paper selection, binding methods,
-                and print finishes to enhance the tactile experience of the
-                zine, complementing the visual design with physical elements.
+                Design Language: The zine uses a dual-layered material approach
+                to represent the split between emotional and physical realities.
               </p>
             </div>
           </div>
@@ -108,12 +110,12 @@ const ZineProject = () => {
             {[1, 2, 3, 4].map((num) => (
               <div
                 key={num}
-                className="w-full aspect-[4/3] bg-white rounded-lg overflow-hidden flex items-center justify-center"
+                className="w-full bg-white rounded-lg overflow-hidden flex items-center justify-center"
               >
                 <img
                   src={`/assets/zine/w${num}.jpg`}
                   alt={`Preview ${num}`}
-                  className="w-full h-full object-contain"
+                  className="w-full h-auto object-contain"
                 />
               </div>
             ))}
@@ -123,15 +125,21 @@ const ZineProject = () => {
           <div className="grid grid-cols-1 gap-12 mb-16">
             <div className="lg:col-span-2 reveal stagger-4">
               <p className="text-muted-foreground mb-6">
-                This editorial design project focused on creating a contemporary
-                zine that showcases modern typography and innovative layout
-                techniques. The project aimed to push the boundaries of print
-                design while maintaining readability and visual harmony.
+                Butter paper (translucent layer): Represents the visible,
+                physical self—the version others often see. 350 GSM printed
+                sheet (base layer): Reveals the emotional reality—the internal
+                state that remains hidden beneath the surface. Together, these
+                layers create a powerful metaphor for the disconnect between how
+                we appear and how we actually feel.
               </p>
               <p className="text-muted-foreground">
-                Special attention was given to paper selection, binding methods,
-                and print finishes to enhance the tactile experience of the
-                zine, complementing the visual design with physical elements.
+                Design Intention: This zine is not diagnostic or
+                prescriptive—it’s a quiet companion, designed to sit with the
+                reader in their emotional reality, gently nudging them toward
+                self-compassion and action. It reflects the belief that mental
+                health support doesn't always begin in therapy; sometimes, it
+                starts with recognizing what we feel and taking one small step
+                forward.
               </p>
             </div>
 
@@ -139,55 +147,56 @@ const ZineProject = () => {
               {[5, 6, 7, 8].map((num) => (
                 <div
                   key={num}
-                  className="w-full aspect-[4/3] bg-white rounded-lg overflow-hidden flex items-center justify-center"
+                  className="w-full bg-white rounded-lg overflow-hidden flex items-center justify-center"
                 >
                   <img
                     src={`/assets/zine/c${num}.jpg`}
                     alt={`Preview ${num}`}
-                    className="w-full h-full object-contain"
+                    className="w-full h-auto object-contain"
                   />
                 </div>
               ))}
             </div>
           </div>
 
+          <p className="text-muted-foreground mb-16">
+            Content Narrative: The zine is structured as a gentle self-check-in
+            guide. Each spread illustrates a familiar emotional state and
+            proposes a small, tangible coping action: When the day slips by in
+            bed – Try building a simple routine or to-do list. When your mind
+            feels cluttered – Start by organizing your physical space. When
+            you're stuck in comparison loops on social media – Reconnect with
+            yourself by tending to a plant or revisiting a forgotten hobby. When
+            you feel deeply alone, even in company – Reach out to a therapist
+            through Therpaize
+          </p>
           {/* Final Full-Width Image */}
-          <div className="aspect-[21/9] bg-muted rounded-lg overflow-hidden mb-16 reveal stagger-7 flex items-center justify-center">
+          <div className="w-full bg-muted rounded-lg overflow-hidden mb-16 reveal stagger-7 flex items-center justify-center">
             <img
               src="/assets/zine/artboard.jpg"
               alt="Zine complete spread"
-              className="w-full h-full object-contain"
+              className="w-full h-auto object-contain"
             />
           </div>
 
           {/* Project Details */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-12 mb-16">
-            <div className="reveal stagger-5 md:col-span-2 lg:col-span-2">
-              <div className="bg-secondary p-6 rounded-lg">
-                <h3 className="text-lg font-medium mb-4">Project Details</h3>
-                <ul className="space-y-3 text-sm">
-                  <li className="flex justify-between">
-                    <span className="text-muted-foreground">Client</span>
-                    <span className="font-medium">Independent Publication</span>
+          <div className="mb-16 reveal stagger-7">
+            <div className="bg-secondary p-6 rounded-lg">
+              <h3 className="text-lg font-medium mb-4">Project Details</h3>
+              <ul className="space-y-3 text-sm">
+                {[
+                  ["Client", "Zine"],
+                  ["Timeline", "1 month"],
+                  ["Year", "2022"],
+                  ["Category", "Branding"],
+                  ["Role", "Lead Designer"],
+                ].map(([label, value]) => (
+                  <li className="flex justify-between" key={label}>
+                    <span className="text-muted-foreground">{label}</span>
+                    <span className="font-medium">{value}</span>
                   </li>
-                  <li className="flex justify-between">
-                    <span className="text-muted-foreground">Timeline</span>
-                    <span className="font-medium">2 months</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span className="text-muted-foreground">Year</span>
-                    <span className="font-medium">2022</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span className="text-muted-foreground">Category</span>
-                    <span className="font-medium">Editorial</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span className="text-muted-foreground">Role</span>
-                    <span className="font-medium">Art Director & Designer</span>
-                  </li>
-                </ul>
-              </div>
+                ))}
+              </ul>
             </div>
           </div>
 

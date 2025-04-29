@@ -11,6 +11,7 @@ const ArakuProject = () => {
   const frameCount = 36;
   let currentFrame = 0;
   let scrollTimeout: NodeJS.Timeout;
+  let is360Visible = false;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -25,6 +26,8 @@ const ArakuProject = () => {
     };
 
     const onScroll = (e: WheelEvent) => {
+      if (!is360Visible) return;
+
       clearTimeout(scrollTimeout);
       currentFrame += e.deltaY > 0 ? 1 : -1;
       if (currentFrame < 0) currentFrame = frameCount - 1;
@@ -37,8 +40,26 @@ const ArakuProject = () => {
       }, 1000);
     };
 
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          is360Visible = entry.isIntersecting;
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (rotatingImageRef.current) {
+      observer.observe(rotatingImageRef.current);
+    }
+
     window.addEventListener("wheel", onScroll);
-    return () => window.removeEventListener("wheel", onScroll);
+    return () => {
+      window.removeEventListener("wheel", onScroll);
+      if (rotatingImageRef.current) {
+        observer.unobserve(rotatingImageRef.current);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -102,15 +123,15 @@ const ArakuProject = () => {
 
           {/* Hero Image Section */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-16 reveal stagger-2">
-            {[1, 2].map((i) => (
+            {["/assets/ya.png", "/assets/ya2.png"].map((src, i) => (
               <div
-                className="w-full aspect-[4/3] rounded-lg overflow-hidden bg-muted"
+                className="w-full aspect-[4/3] rounded-lg overflow-hidden bg-muted flex items-center justify-center"
                 key={i}
               >
                 <img
-                  src="/lovable-uploads/ebc115e1-483b-42cf-9185-31eb45b574cb.png"
-                  alt={`Araku Coffee Branding ${i}`}
-                  className="w-full h-full object-cover"
+                  src={src}
+                  alt={`Araku Coffee Branding ${i + 1}`}
+                  className="w-full h-full object-contain"
                 />
               </div>
             ))}
@@ -123,35 +144,50 @@ const ArakuProject = () => {
                 Project Overview
               </h2>
               <p className="text-muted-foreground">
-                Araku Coffee is a premium coffee brand with a commitment to
-                sustainability and quality. The branding project aimed to
-                reflect their unique identity and values while creating a
-                distinctive visual language.
+                This project emerged from a collaboration with the Naandi
+                Foundation, guided by its CEO, Manoj Kumar—an individual who has
+                lived among and worked closely with the tribal communities of
+                Araku Valley. His efforts were instrumental in helping the
+                indigenous communities recognize the richness of their terroir
+                and transform coffee cultivation into a means of self-reliance
+                and pride. Through this collaboration, the Araku brand was born,
+                now expanding both in India and internationally.
+                <br />
+                <br />
+                There were two directions to be looked upon:
+                <br />
+                1. <strong>The backend</strong>, focusing on rebuilding
+                relationships between local coffee-growing cooperatives and
+                internal stakeholders such as Trivar.
+                <br />
+                2. <strong>The frontend</strong>, centered on redefining the
+                relationship between the customer and the Araku brand.
+              </p>
+
+              <p className="text-muted-foreground">
+                Design Positioning: This project quickly evolved into more than
+                a branding exercise. It presented a critical reflection on the
+                role of design in socio-ecological ecosystems. Working in a
+                context so deeply rooted in indigenous culture raised complex
+                questions: What does it mean to design for a community one is
+                not a part of? Can visual design genuinely give voice or agency,
+                or does it risk oversimplification? The concern was not merely
+                aesthetic—it was ethical.
               </p>
               <p className="text-muted-foreground">
-                The project encompassed a comprehensive brand identity system
-                including logo design, packaging, color palette development,
-                typography selection, and brand guidelines that would resonate
-                with their target audience.
+                Design Direction: After extensive reflection, the decision was
+                made to engage with the packaging system—not as a surface-level
+                branding tool, but as a vehicle for storytelling. The intent was
+                to craft a sensory, narrative-rich packaging experience that
+                would bridge the emotional and ecological gap between the
+                consumer and the land of Araku. .
               </p>
-              <p className="text-muted-foreground">
-                The design approach focused on combining contemporary aesthetics
-                with organic elements that represent the coffee's origin and the
-                brand's sustainable practices.
-              </p>
-            </div>
-            <div className="lg:col-span-1 flex justify-center lg:justify-end mt-8 lg:mt-0">
-              <img
-                src="/assets/coffee.png"
-                alt="Araku Coffee Branding"
-                className="w-48 sm:w-56 h-auto object-contain rounded-lg"
-              />
             </div>
           </div>
 
           {/* Two Images Section (Updated) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 reveal stagger-5">
-            {["/assets/box-under.png", "/assets/moe.png"].map((src, i) => (
+            {["/assets/box-under.png", "/assets/i-1.png"].map((src, i) => (
               <div
                 key={i}
                 className="w-full rounded-lg overflow-hidden bg-white"
@@ -159,7 +195,7 @@ const ArakuProject = () => {
                 <img
                   src={src}
                   alt={`Araku branding ${i}`}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover bg-white"
                 />
               </div>
             ))}
@@ -169,12 +205,21 @@ const ArakuProject = () => {
           <div className="mb-16 reveal stagger-6 space-y-6">
             <h2 className="text-2xl font-serif font-medium">The Process</h2>
             <p className="text-muted-foreground">
-              The project began with an extensive research phase that involved
-              understanding Araku Coffee's unique story, values, and market
-              positioning. This included analyzing competitors and identifying
-              opportunities to create a distinctive brand identity.
+              Immersive Research: A study of Araku’s terroir, tribal histories,
+              and the socio-economic transformation led by Naandi. Ethnographic
+              Insights: Extracted from conversations and case studies shared by
+              Manoj Kumar, offering a lens into the intimate connection between
+              land, labor, and livelihood. Design Exploration: Focused on
+              developing a visual language rooted in the soil, climate, and
+              culture of Araku—translating these elements into colors, textures,
+              materials, and forms. Material Choices: Prioritized sustainable,
+              tactile materials that evoke a connection to the earth and signal
+              the ecological ethos of the community. Narrative Integration:
+              Designed with layered storytelling in mind—allowing the consumer
+              to not only consume, but also connect, understand, and appreciate
+              the origin of what’s in their hands
             </p>
-            <p className="text-muted-foreground">
+            {/* <p className="text-muted-foreground">
               Following the research, multiple design concepts were developed
               and refined based on client feedback. The selected direction
               emphasizes clean, modern aesthetics with organic elements that
@@ -185,21 +230,54 @@ const ArakuProject = () => {
               system with logo variations, packaging designs, typography
               guidelines, and a color palette that reflects the premium nature
               of the product while connecting to its origins.
-            </p>
+            </p> */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[...Array(4)].map((_, i) => (
+              {[
+                "/assets/araku/p1.jpg",
+                "/assets/araku/p2.jpg",
+                "/assets/araku/p3.jpg",
+                "/assets/araku/p4.jpg",
+                "/assets/araku/p5.jpg",
+                "/assets/araku/p6.jpg",
+                "/assets/araku/p7.jpg",
+                "/assets/araku/p8.jpg",
+              ].map((src, i) => (
                 <div
-                  className="aspect-[4/5] bg-muted rounded-lg overflow-hidden"
+                  className="aspect-[4/5] bg-muted rounded-lg overflow-hidden flex items-center justify-center"
                   key={i}
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80"
+                    src={src}
                     alt={`Process step ${i + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain bg-white"
                   />
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* 360 Image Viewer */}
+          {/* <div className="aspect-[21/9] bg-muted rounded-lg overflow-hidden mb-16 reveal stagger-8">
+            <img
+              ref={rotatingImageRef}
+              src="/assets/pg.png"
+              alt="Araku coffee branding 360 showcase"
+              className="w-full h-full object-contain pointer-events-none"
+            />
+          </div> */}
+          <p className="text-muted-foreground mb-16">
+            The final packaging concept was positioned as a bridge—a vessel of
+            memory, place, and purpose. It served not just to house a product,
+            but to embody a story of regeneration, dignity, and
+            interconnectedness. It offered a quiet, respectful invitation for
+            the consumer to become part of a larger ecosystem of change.
+          </p>
+          <div className="aspect-[21/9] bg-muted rounded-lg overflow-hidden mb-16 reveal stagger-7 flex items-center justify-center">
+            <img
+              src="/assets/pg.png"
+              alt="Zine complete spread"
+              className="w-full h-full object-contain"
+            />
           </div>
 
           {/* Project Details */}
@@ -209,10 +287,10 @@ const ArakuProject = () => {
               <ul className="space-y-3 text-sm">
                 {[
                   ["Client", "Araku Coffee"],
-                  ["Timeline", "3 months"],
+                  ["Timeline", "1 month"],
                   ["Year", "2022"],
                   ["Category", "Branding"],
-                  ["Role", "Lead Designer"],
+                  ["Role", "Designer"],
                 ].map(([label, value]) => (
                   <li className="flex justify-between" key={label}>
                     <span className="text-muted-foreground">{label}</span>
@@ -221,16 +299,6 @@ const ArakuProject = () => {
                 ))}
               </ul>
             </div>
-          </div>
-
-          {/* 360 Image Viewer */}
-          <div className="aspect-[21/9] bg-muted rounded-lg overflow-hidden mb-16 reveal stagger-8">
-            <img
-              ref={rotatingImageRef}
-              src="/"
-              alt="Araku coffee branding 360 showcase"
-              className="w-full h-full object-contain pointer-events-none"
-            />
           </div>
 
           {/* Next Project */}
