@@ -104,17 +104,17 @@ const ZineProject = () => {
             </div>
           </div>
 
-          {/* Image Grid 1 */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 reveal stagger-3 mb-16">
+          {/* Image Grid 1 (Responsive) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 reveal stagger-3 mb-16">
             {[1, 2, 3, 4].map((num) => (
               <div
                 key={num}
-                className="aspect-[4/3] bg-white rounded-lg overflow-hidden flex items-center justify-center p-2"
+                className="w-full aspect-[4/3] bg-white rounded-lg overflow-hidden"
               >
                 <img
                   src={`/assets/zine/w${num}.jpg`}
                   alt={`Preview ${num}`}
-                  className="max-w-full max-h-full object-contain"
+                  className="w-full h-full object-cover"
                 />
               </div>
             ))}
@@ -136,16 +136,16 @@ const ZineProject = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 reveal stagger-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 reveal stagger-5">
               {[5, 6, 7, 8].map((num) => (
                 <div
                   key={num}
-                  className="aspect-[4/3] bg-white rounded-lg overflow-hidden flex items-center justify-center p-2"
+                  className="w-full aspect-[4/3] bg-white rounded-lg overflow-hidden"
                 >
                   <img
                     src={`/assets/zine/c${num}.jpg`}
                     alt={`Preview ${num}`}
-                    className="max-w-full max-h-full object-contain"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               ))}
